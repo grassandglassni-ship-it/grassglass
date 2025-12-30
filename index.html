@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Grass & Glass</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Grass & Glass provides grass cutting, lawn care and window cleaning across Coleraine, Portrush and Portstewart.">
 
   <style>
     body {
@@ -14,130 +13,35 @@
       color: #ffffff;
     }
 
-    h1, h2 {
-      font-weight: 900;
-      letter-spacing: 0.5px;
+    /* HERO IMAGE */
+    .hero-img img {
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      display: block;
     }
 
-    header {
-      position: relative;
-      height: 75vh;
-      background: url("images/lawn-mower.jpg") center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* HERO TEXT */
+    .hero-text {
       text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #16a34a, #22c55e);
     }
 
-    header::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
+    h1 {
+      font-size: 5rem;   /* 🔥 VERY BIG TITLE */
+      font-weight: 900;
+      margin: 0;
+      letter-spacing: 3px;
     }
 
-    header .content {
-      position: relative;
-      z-index: 2;
-      padding: 20px;
-    }
-
-    header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.4rem;
+    .hero-text p {
+      font-size: 1.6rem;
       font-weight: bold;
+      margin-top: 15px;
     }
 
     section {
       padding: 60px 20px;
       max-width: 1100px;
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-      color: #22c55e;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #121b2e;
-      padding: 25px;
-      border-radius: 14px;
-      text-align: center;
-      font-size: 1.1rem;
-      font-weight: bold;
-    }
-
-    .contact {
-      background: #020617;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .contact p {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin: 12px 0;
-    }
-
-    .contact a {
-      color: #22c55e;
-      text-decoration: none;
-    }
-
-    footer {
-      background: #020617;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.95rem;
-      font-weight: bold;
-      color: #9ca3af;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="content">
-    <h1>GRASS & GLASS</h1>
-    <p>
-      GRASS CUTTING • LAWN CARE • WINDOW CLEANING<br>
-      COLERAINE • PORTRUSH • PORTSTEWART
-    </p>
-  </div>
-</header>
-
-<section>
-  <h2>OUR SERVICES</h2>
-  <div class="services">
-    <div class="card">🌿 GRASS CUTTING & LAWN CARE</div>
-    <div class="card">🪟 WINDOW CLEANING</div>
-    <div class="card">🏡 GARDEN TIDY UPS</div>
-    <div class="card">🔁 ONE-OFF OR REGULAR MAINTENANCE</div>
-  </div>
-</section>
-
-<section class="contact">
-  <h2>CONTACT US</h2>
-  <p>📞 CALL: <a href="tel:07478979063">07478 979063</a></p>
-  <p>📧 EMAIL: <a href="mailto:grassandglassni@gmail.com">grassandglassni@gmail.com</a></p>
-</section>
-
-<footer>
-  © 2025 GRASS & GLASS · LOCAL & RELIABLE
-</footer>
-
-</body>
-</html>
+      margin: a
