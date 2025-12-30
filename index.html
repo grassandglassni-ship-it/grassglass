@@ -4,16 +4,200 @@
   <meta charset="UTF-8">
   <title>Grass & Glass</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Grass & Glass provides grass cutting, lawn care and window cleaning services across Coleraine, Portrush and Portstewart.">
+  <meta name="description" content="Grass & Glass provides grass cutting, lawn care, garden tidy-ups and window cleaning across Coleraine, Portrush and Portstewart. Fast quotes and reliable service.">
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b1220;
-      color: #ffffff;
-      line-height: 1.6;
-    }
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b1220;color:#fff;line-height:1.7}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{background:linear-gradient(135deg,#16a34a,#22c55e);padding:55px 0;text-align:center}
+    h1{font-size:4rem;font-weight:900;margin:0;letter-spacing:3px}
+    header p{margin:14px auto 0;font-size:1.2rem;font-weight:700;max-width:900px}
+    .cta{margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:800;border:2px solid rgba(255,255,255,.25);color:#fff;background:rgba(0,0,0,.15)}
+    .btn.primary{background:#0b1220;border:0}
+    section{padding:55px 0}
+    h2{text-align:center;font-size:2.1rem;color:#22c55e;margin:0 0 22px;font-weight:900}
+    .card{background:#121b2e;border-radius:16px;padding:22px;border:1px solid rgba(255,255,255,.08)}
+    .muted{color:#a7b0c6;font-weight:600}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+    .service{background:#121b2e;border:2px solid rgba(34,197,94,.6);border-radius:16px;padding:22px;font-weight:800;text-align:center}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width:900px){.split{grid-template-columns:1fr}}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:900;font-size:.85rem;background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35);color:#c7ffd9}
+    .price{font-size:2.2rem;font-weight:900;margin:10px 0 0}
+    .contact{background:#020617;text-align:center;padding:55px 0}
+    .contact p{font-size:1.25rem;font-weight:800;margin:12px 0}
+    .contact a{color:#22c55e;text-decoration:none}
+    footer{background:#020617;text-align:center;padding:18px 0 24px;font-weight:700;color:#9ca3af;font-size:.95rem}
 
-    header {
-      background: linear-gradient(135deg, #16a34a
+    /* Floating buttons */
+    .socials{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:12px;z-index:999}
+    .social-btn{padding:14px 16px;border-radius:999px;font-weight:900;text-decoration:none;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,.35);font-size:.95rem}
+    .whatsapp{background:#25D366;color:#05210f}
+    .facebook{background:#1877F2}
+
+    @media (max-width:600px){h1{font-size:3rem}}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <h1>GRASS &amp; GLASS</h1>
+    <p>
+      Grass cutting • Lawn care • Garden tidy-ups • Window cleaning<br>
+      Coleraine • Portrush • Portstewart
+    </p>
+
+    <div class="cta">
+      <a class="btn primary" href="tel:07478979063">Call 07478 979063</a>
+      <a class="btn" href="mailto:grassandglassni@gmail.com">Email for a Quote</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>About Us</h2>
+    <div class="split">
+      <div class="card">
+        <p style="margin-top:0;">
+          Grass &amp; Glass is a local outdoor maintenance service for homes and small businesses.
+          We focus on tidy, professional work and a reliable service you can book again and again.
+        </p>
+        <p class="muted" style="margin-bottom:0;">
+          One-off jobs or regular maintenance — we’ll give a fast quote and turn up when we say we will.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0;font-weight:900;">What you can expect</h3>
+        <ul class="muted" style="margin:0;padding-left:18px;">
+          <li>Fast replies &amp; straightforward pricing</li>
+          <li>Neat finish (tidy edges &amp; cleanup)</li>
+          <li>Weekly / fortnightly rounds available</li>
+          <li>Friendly local service you can trust</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="service">🌿 Grass Cutting &amp; Lawn Care<br><span class="muted">Cuts, edging, tidy finish</span></div>
+      <div class="service">🏡 Garden Tidy Ups<br><span class="muted">Weeds, leaves, general cleanup</span></div>
+      <div class="service">🪟 Window Cleaning<br><span class="muted">Homes &amp; small businesses</span></div>
+      <div class="service">🔁 Regular Maintenance<br><span class="muted">Weekly / fortnightly visits</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Simple Pricing</h2>
+    <p class="muted" style="text-align:center;margin-top:-10px;">
+      Exact prices depend on size &amp; condition — message us for a quick quote.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <span class="tag">Most popular</span>
+        <h3 style="margin:12px 0 0;font-weight:900;">Small lawn cut</h3>
+        <div class="price">from £15</div>
+        <p class="muted">Ideal for small gardens and quick tidy-ups.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0;font-weight:900;">Medium / large lawn</h3>
+        <div class="price">from £25</div>
+        <p class="muted">Includes a tidy finish. Regular rounds available.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0;font-weight:900;">Window cleaning</h3>
+        <div class="price">from £10</div>
+        <p class="muted">Depends on number of windows and access.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>How It Works</h2>
+    <div class="grid">
+      <div class="card">
+        <h3 style="margin:0 0 8px;font-weight:900;">1) Message us</h3>
+        <p class="muted" style="margin:0;">Tell us your area and what you need done. Photos help us price faster.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 8px;font-weight:900;">2) We do the job</h3>
+        <p class="muted" style="margin:0;">We arrive on time, do a tidy job, and leave the place clean.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 8px;font-weight:900;">3) Set a schedule</h3>
+        <p class="muted" style="margin:0;">Want ongoing maintenance? We can do weekly or fortnightly visits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Areas We Cover</h2>
+    <div class="card">
+      <p class="muted" style="margin:0;text-align:center;">
+        Coleraine • Portrush • Portstewart — and nearby areas. If you’re close, message us and we’ll confirm.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Customer Reviews</h2>
+    <div class="grid">
+      <div class="card">
+        <p style="margin-top:0;font-weight:800;">“Quick reply, showed up on time and left the garden spotless.”</p>
+        <p class="muted" style="margin:0;">— Local customer</p>
+      </div>
+      <div class="card">
+        <p style="margin-top:0;font-weight:800;">“Windows came up great. Reliable service and fair price.”</p>
+        <p class="muted" style="margin:0;">— Local customer</p>
+      </div>
+      <div class="card">
+        <p style="margin-top:0;font-weight:800;">“Booked regular cuts now. Always tidy and easy to deal with.”</p>
+        <p class="muted" style="margin:0;">— Local customer</p>
+      </div>
+    </div>
+    <p class="muted" style="text-align:center;margin-top:14px;">
+      (When you get real reviews, send them to me and I’ll swap these for the real ones.)
+    </p>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container">
+    <h2>Get in Touch</h2>
+    <p>📞 <a href="tel:07478979063">07478 979063</a></p>
+    <p>📧 <a href="mailto:grassandglassni@gmail.com">grassandglassni@gmail.com</a></p>
+    <p class="muted">WhatsApp &amp; Facebook available for quick replies</p>
+  </div>
+</section>
+
+<footer>
+  © 2025 Grass &amp; Glass · Local &amp; Reliable
+</footer>
+
+<!-- Floating buttons -->
+<div class="socials">
+  <a class="social-btn whatsapp" href="https://wa.me/447478979063" target="_blank">WhatsApp Us</a>
+  <a class="social-btn facebook" href="https://facebook.com/yourfacebookpagename" target="_blank">Facebook</a>
+</div>
+
+</body>
+</html>
