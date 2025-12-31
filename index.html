@@ -1,182 +1,331 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grass & Glass | Grass Cutting & Window Cleaning</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grass & Glass | Grass Cutting & Window Cleaning</title>
+  <meta name="description" content="Grass & Glass: Grass cutting & window cleaning across Coleraine, Portrush, Portstewart and the North Coast Route. Free quotes, fast reply." />
 
-<style>
-:root{
-  --bg:#0f1f1b;
-  --card:#132824;
-  --accent:#3fbf6f;
-  --text:#eaf2ef;
-  --muted:#a7c4b8;
-  --radius:16px;
-}
+  <style>
+    :root{
+      --bg:#071424;
+      --panel:#0b1c33;
+      --text:#eaf2ff;
+      --muted:#9fb3c8;
+      --green:#37b24d;
+      --blue:#1c7ed6;
+      --radius:16px;
+      --max:1100px;
+      --border:rgba(255,255,255,.10);
+      --shadow:0 14px 40px rgba(0,0,0,.35);
+    }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background:linear-gradient(180deg,#0e1c18,#102421);
-  color:var(--text);
-}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: linear-gradient(180deg,#071424 0%, #06101d 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 16px}
 
-/* HEADER */
-.header{
-  padding:28px 16px;
-  text-align:center;
-}
-.header h1{
-  margin:0;
-  font-size:34px;
-}
-.header p{
-  margin:8px 0 0;
-  color:var(--muted);
-}
+    /* TOP BAR */
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      background: rgba(7,20,36,.85);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:12px 0;
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width:220px}
+    .brand img{
+      width:36px; height:36px; border-radius:10px; object-fit:cover; background:#fff;
+    }
+    .brand .name{font-weight:900; line-height:1.1}
+    .brand .tag{font-size:12px; color:var(--muted)}
 
-/* SECTIONS */
-section{
-  max-width:1100px;
-  margin:32px auto;
-  padding:0 16px;
-}
+    .nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
+    .nav a{
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      font-weight:800; font-size:13px;
+    }
 
-.section-title{
-  font-size:26px;
-  margin-bottom:16px;
-}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:14px;
+      font-weight:900; font-size:13px;
+      border:1px solid rgba(0,0,0,.08);
+      white-space:nowrap;
+    }
+    .btn.green{background:linear-gradient(135deg,var(--green),#2f9e44); color:#05230d}
+    .btn.blue{background:linear-gradient(135deg,var(--blue),#1971c2); color:#05192d}
 
-/* CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
+    /* HERO IMAGE */
+    .hero{
+      padding:16px 0 10px;
+    }
+    .hero img{
+      width:100%;
+      height:160px;            /* controls size */
+      object-fit:contain;      /* shows full logo/banner */
+      background:#fff;
+      border-radius:14px;
+      display:block;
+      box-shadow: var(--shadow);
+    }
 
-.card{
-  background:var(--card);
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.3);
-}
+    /* SECTIONS */
+    section{padding:18px 0}
+    h1{margin:0; font-size:34px; letter-spacing:-.3px}
+    .sub{margin:8px 0 0; color:var(--muted); line-height:1.6}
+    .panel{
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:16px;
+    }
 
-/* IMAGE SLOT */
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  display:block;
-}
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 6;
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .body{padding:14px}
+    .card h3{margin:0 0 6px}
+    .card p{margin:0; color:var(--muted); line-height:1.55}
+    .list{margin:10px 0 0; padding-left:18px}
+    .list li{margin:6px 0}
 
-/* CARD BODY */
-.card-body{
-  padding:18px;
-}
-.card-body h3{
-  margin:0 0 8px;
-}
-.card-body ul{
-  padding-left:18px;
-  margin:10px 0;
-}
-.card-body li{
-  margin-bottom:6px;
-}
+    /* IMAGE SPOT IN CARDS */
+    .card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      display:block;
+      background: rgba(255,255,255,.06);
+    }
+    .placeholder{
+      height:180px;
+      display:flex; align-items:center; justify-content:center;
+      color: rgba(234,242,255,.7);
+      font-weight:900;
+      background: linear-gradient(135deg, rgba(55,178,77,.20), rgba(28,126,214,.16));
+    }
 
-/* PRICES */
-.price{
-  font-weight:600;
-  color:var(--accent);
-}
+    /* PRICES */
+    .price-grid .card{grid-column: span 4}
+    .price{font-size:22px; font-weight:1000; margin:8px 0 6px}
+    .note{font-size:12px; color:var(--muted)}
 
-/* FOOTER */
-.footer{
-  text-align:center;
-  padding:30px 16px;
-  color:var(--muted);
-  font-size:14px;
-}
-</style>
+    /* FOOTER */
+    footer{padding:22px 0 34px; color:var(--muted); font-size:13px}
+
+    /* MOBILE */
+    @media (max-width: 940px){
+      .nav{display:none}
+      .card{grid-column: span 12}
+      .price-grid .card{grid-column: span 12}
+      h1{font-size:30px}
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <h1>Grass & Glass</h1>
-  <p>Grass Cutting & Window Cleaning • North Coast</p>
-</div>
-
-<!-- SERVICES -->
-<section>
-  <div class="section-title">Services</div>
-
-  <div class="grid">
-
-    <!-- GRASS CUTTING -->
-    <div class="card">
-      <img src="hero.png" alt="Grass Cutting Service">
-      <div class="card-body">
-        <h3>Grass Cutting</h3>
-        <ul>
-          <li>Mowing & tidy edges</li>
-          <li>Strimming & finishing</li>
-          <li>Clippings optional</li>
-        </ul>
-        <div class="price">From £15</div>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <!-- If you don't have logo.png, delete this img line -->
+        <img src="logo.png" alt="Grass & Glass logo" />
+        <div>
+          <div class="name">Grass &amp; Glass</div>
+          <div class="tag">Coleraine • Portrush • Portstewart • North Coast Route</div>
+        </div>
       </div>
-    </div>
 
-    <!-- WINDOW CLEANING -->
-    <div class="card">
-      <img src="windows.png" alt="Window Cleaning Service">
-      <div class="card-body">
-        <h3>Window Cleaning</h3>
-        <ul>
-          <li>Exterior windows</li>
-          <li>Frames wiped</li>
-          <li>Regular rounds</li>
-        </ul>
-        <div class="price">From £10</div>
+      <div class="nav">
+        <a href="#services">Services</a>
+        <a href="#prices">Prices</a>
+        <a href="#areas">Areas</a>
+        <a href="#contact">Contact</a>
       </div>
-    </div>
 
-  </div>
-</section>
-
-<!-- PRICES -->
-<section>
-  <div class="section-title">Price Guide</div>
-
-  <div class="grid">
-    <div class="card">
-      <div class="card-body">
-        <h3>Grass Cutting</h3>
-        <p>Small: £15–£25</p>
-        <p>Medium: £25–£45</p>
-        <p>Large: £45+</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-body">
-        <h3>Window Cleaning</h3>
-        <p>Small house: £10–£15</p>
-        <p>Medium: £15–£25</p>
-        <p>Large: £25–£40</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
+        <a class="btn green" href="tel:07934834567">Call: 07934 834567</a>
+        <a class="btn blue" href="mailto:grassandglassni@gmail.com">Email Us</a>
       </div>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
-<div class="footer">
-  Free quotes • Fast replies • Local team<br>
-  Call / Text: 07934 834567
-</div>
+  <!-- HERO -->
+  <div class="container hero">
+    <img src="hero.png" alt="Grass & Glass banner">
+  </div>
 
+  <main class="container">
+
+    <!-- INTRO -->
+    <section>
+      <div class="panel">
+        <h1>Grass Cutting &amp; Window Cleaning</h1>
+        <p class="sub">
+          Reliable outdoor maintenance across the North Coast. Free quotes, fair prices, and quick messages back.
+        </p>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="panel" style="margin-bottom:14px">
+        <b>Services</b>
+        <div class="sub">One-off or regular maintenance.</div>
+      </div>
+
+      <div class="grid">
+        <!-- GRASS -->
+        <div class="card">
+          <!-- If you don't have grass.jpg yet, leave the placeholder or change src to hero.png -->
+          <!-- <img src="grass.jpg" alt="Grass cutting"> -->
+          <div class="placeholder">Photo spot (Grass)</div>
+
+          <div class="body">
+            <h3>Grass Cutting</h3>
+            <p>Lawns cut neatly with a tidy finish.</p>
+            <ul class="list">
+              <li>Mowing + tidy edges</li>
+              <li>Strimming / finishing touches</li>
+              <li>Clippings removal optional</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- WINDOWS -->
+        <div class="card">
+          <!-- <img src="windows.jpg" alt="Window cleaning"> -->
+          <div class="placeholder">Photo spot (Windows)</div>
+
+          <div class="body">
+            <h3>Window Cleaning</h3>
+            <p>Exterior windows for homes & small businesses.</p>
+            <ul class="list">
+              <li>Windows cleaned</li>
+              <li>Frames wiped (where possible)</li>
+              <li>Regular rounds available</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICES -->
+    <section id="prices">
+      <div class="panel" style="margin-bottom:14px">
+        <b>Price Menu</b>
+        <div class="sub">Quick guide — final price depends on size &amp; access.</div>
+      </div>
+
+      <div class="grid price-grid">
+        <div class="card">
+          <div class="body">
+            <h3>Small Lawn</h3>
+            <div class="price">£15–£25</div>
+            <div class="note">Typical small garden.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="body">
+            <h3>Medium Lawn</h3>
+            <div class="price">£25–£45</div>
+            <div class="note">More edging/strimming.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="body">
+            <h3>Large Lawn</h3>
+            <div class="price">£45–£70+</div>
+            <div class="note">Price depends on size/overgrowth.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="body">
+            <h3>Window Cleaning</h3>
+            <div class="price">£10–£40</div>
+            <div class="note">Depends on number of windows & access.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="body">
+            <h3>Regular Discounts</h3>
+            <div class="price">Save ££</div>
+            <div class="note">Fortnightly / monthly discounts available.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="body">
+            <h3>Overgrown / One-off</h3>
+            <div class="price">Quote</div>
+            <div class="note">Send a photo for a fast price.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AREAS -->
+    <section id="areas">
+      <div class="panel">
+        <b>Areas We Cover</b>
+        <p class="sub" style="margin-top:6px">
+          Coleraine • Portrush • Portstewart • Castlerock • Bushmills • Ballymoney • Limavady • North Coast Route & nearby.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="panel">
+        <b>Contact</b>
+        <p class="sub" style="margin-top:6px">
+          Send a photo/video for a quick quote.
+        </p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+          <a class="btn green" href="tel:07934834567">Call / Text: 07934 834567</a>
+          <a class="btn blue" href="mailto:grassandglassni@gmail.com">grassandglassni@gmail.com</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Grass &amp; Glass • Free quotes • Fast reply • Local team
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
