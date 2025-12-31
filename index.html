@@ -1,587 +1,634 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grass & Glass | Grass Cutting & Window Cleaning</title>
-  <meta name="description" content="Grass & Glass – Local grass cutting, lawn care, garden tidy-ups and window cleaning in Coleraine, Portrush & Portstewart. Call or text 07934 834567." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grass & Glass | Grass Cutting & Window Cleaning | North Coast</title>
+  <meta name="description" content="Grass & Glass: Grass cutting, lawn care, garden tidy-ups & window cleaning across Coleraine, Portrush, Portstewart and the North Coast Route. Free quotes, fast reply." />
 
   <style>
     :root{
-      --bg:#071a2b;
-      --panel:#0d2640;
-      --panel2:#0b1f35;
+      --bg:#071424;
+      --card:#0b1c33;
+      --muted:#9fb3c8;
       --text:#eaf2ff;
-      --muted:#bcd0ee;
-      --green:#39d98a;
-      --green2:#1fb86d;
-      --blue:#2ea8ff;
-      --blue2:#1978ff;
-      --line:rgba(255,255,255,.10);
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --green:#37b24d;
+      --green2:#2f9e44;
+      --blue:#1c7ed6;
+      --blue2:#1971c2;
+      --white:#ffffff;
+      --shadow: 0 16px 50px rgba(0,0,0,.35);
       --radius: 18px;
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
     body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(1200px 500px at 20% 0%, rgba(46,168,255,.20), transparent 55%),
-        radial-gradient(900px 500px at 80% 10%, rgba(57,217,138,.18), transparent 55%),
-        linear-gradient(180deg, #041324 0%, #061a2d 35%, #041324 100%);
+        radial-gradient(1200px 700px at 20% 10%, rgba(28,126,214,.25), transparent 55%),
+        radial-gradient(900px 600px at 80% 20%, rgba(55,178,77,.22), transparent 55%),
+        linear-gradient(180deg, #071424 0%, #071a2b 60%, #061224 100%);
       overflow-x:hidden;
     }
 
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1120px, 92%); margin:0 auto;}
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1120px, 92vw); margin:0 auto}
 
     /* Top bar */
     .topbar{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(5,16,30,.70);
-      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(10px);
+      background: rgba(7,20,36,.65);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
     .topbar-inner{
       display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
+      padding:12px 0;
       gap:14px;
     }
     .brand{
       display:flex; align-items:center; gap:12px;
-      font-weight:900; letter-spacing:.4px;
+      min-width: 240px;
     }
-    .brand-badge{
-      width:42px;height:42px;border-radius:14px;
-      background: linear-gradient(135deg, rgba(57,217,138,.9), rgba(46,168,255,.9));
-      box-shadow: 0 12px 30px rgba(46,168,255,.18);
-      display:grid; place-items:center;
-      border:1px solid rgba(255,255,255,.14);
+    .brand img{
+      width:44px; height:44px; border-radius:12px;
+      object-fit:cover;
+      box-shadow: 0 8px 22px rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.12);
+      background:#0a1a30;
     }
-    .brand-badge svg{width:24px;height:24px}
-    .brand-name{
-      display:flex; flex-direction:column; line-height:1.05;
+    .brand .name{
+      line-height:1.05;
+      font-weight:900;
+      letter-spacing:.2px;
     }
-    .brand-name strong{font-size:16px}
-    .brand-name span{font-size:12px;color:var(--muted);font-weight:600}
+    .brand .tag{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:2px;
+    }
 
-    .nav{
-      display:flex; gap:18px; align-items:center;
-      font-weight:700; color:rgba(234,242,255,.88);
+    nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:center;
     }
-    .nav a{opacity:.9}
-    .nav a:hover{opacity:1}
+    nav a{
+      font-weight:700;
+      font-size:13px;
+      padding:9px 10px;
+      border-radius:12px;
+      color: rgba(234,242,255,.9);
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+    nav a:hover{border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06)}
 
-    .cta-row{display:flex; gap:10px; align-items:center}
+    .cta-row{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
     .btn{
-      padding:10px 14px; border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:800;
-      display:inline-flex; align-items:center; gap:10px;
-      transition: transform .12s ease, background .12s ease, border .12s ease;
-      cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      font-weight:900;
+      font-size:13px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
       white-space:nowrap;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.22);}
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.07)}
     .btn.primary{
-      background: linear-gradient(135deg, var(--green), var(--blue));
-      border-color: transparent;
-      color:#031527;
+      background: linear-gradient(135deg, var(--green), var(--green2));
+      border-color: rgba(0,0,0,.1);
+      color:#062012;
+      box-shadow: 0 12px 26px rgba(55,178,77,.20);
     }
-    .btn.primary:hover{filter:saturate(1.05) brightness(1.03);}
-    .btn svg{width:18px;height:18px}
+    .btn.blue{
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      border-color: rgba(0,0,0,.1);
+      color:#05192d;
+      box-shadow: 0 12px 26px rgba(28,126,214,.20);
+    }
+    .btn .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 0 0 3px rgba(255,255,255,.15);
+    }
 
     /* Hero */
-    .hero{padding:54px 0 24px}
+    .hero{
+      padding:46px 0 26px;
+      position:relative;
+    }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.12fr .88fr;
+      grid-template-columns: 1.15fr .85fr;
       gap:22px;
       align-items:stretch;
     }
     .hero-card{
-      border:1px solid var(--line);
       border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      background:
+        linear-gradient(135deg, rgba(55,178,77,.16), transparent 45%),
+        linear-gradient(225deg, rgba(28,126,214,.16), transparent 55%),
+        rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.10);
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
     }
-    .hero-left{padding:28px}
-    .pill{
-      display:inline-flex; gap:10px; align-items:center;
-      padding:8px 12px; border-radius:999px;
-      background: rgba(57,217,138,.12);
-      border:1px solid rgba(57,217,138,.24);
-      color: rgba(234,242,255,.95);
-      font-weight:800; font-size:12px;
+    .hero-card .inner{
+      padding:26px;
     }
-    .pill i{
-      width:10px;height:10px;border-radius:999px;background:var(--green);
-      box-shadow: 0 0 0 4px rgba(57,217,138,.15);
-      display:inline-block;
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      font-weight:900;
+      letter-spacing:.2px;
+      font-size:12px;
+      color: rgba(234,242,255,.92);
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      padding:8px 12px;
+      border-radius:999px;
+    }
+    .kicker .pill{
+      background: rgba(55,178,77,.22);
+      border:1px solid rgba(55,178,77,.35);
+      padding:4px 9px;
+      border-radius:999px;
+      font-size:11px;
+      color: rgba(234,242,255,.95);
+      font-weight:900;
     }
     h1{
       margin:14px 0 10px;
-      font-size: clamp(30px, 4.2vw, 46px);
-      letter-spacing:-.6px;
+      font-size: clamp(28px, 3.8vw, 46px);
       line-height:1.05;
+      letter-spacing:-.8px;
     }
     .sub{
-      color: rgba(234,242,255,.82);
-      font-size: 16px;
+      color: var(--muted);
+      font-size: 15px;
       line-height:1.55;
-      max-width:58ch;
+      margin:0 0 16px;
+      max-width: 62ch;
     }
-    .highlights{
-      display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;
+    .badge-row{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin: 10px 0 18px;
     }
-    .tag{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      padding:10px 12px; border-radius:14px;
-      font-weight:800; font-size:13px;
-      display:flex; gap:8px; align-items:center;
-      color: rgba(234,242,255,.92);
-    }
-    .tag svg{width:16px;height:16px; opacity:.95}
-
-    .hero-actions{
-      display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;
-    }
-    .note{
-      margin-top:14px; color:var(--muted); font-weight:650; font-size:13px;
-    }
-
-    .hero-right{
-      display:flex; flex-direction:column;
-    }
-    .mini-card{
-      padding:18px;
-      height:100%;
-      background:
-        radial-gradient(700px 240px at 20% 20%, rgba(46,168,255,.18), transparent 60%),
-        radial-gradient(700px 240px at 70% 40%, rgba(57,217,138,.16), transparent 60%),
-        linear-gradient(180deg, rgba(13,38,64,.92), rgba(9,28,48,.92));
-    }
-    .mini-title{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      margin-bottom:10px;
-    }
-    .mini-title strong{font-size:16px}
     .badge{
-      font-weight:900; font-size:12px;
+      display:inline-flex; align-items:center; gap:8px;
       padding:8px 10px;
       border-radius:999px;
-      background: rgba(46,168,255,.14);
-      border:1px solid rgba(46,168,255,.26);
-      color:rgba(234,242,255,.95);
+      font-weight:800;
+      font-size:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: rgba(234,242,255,.92);
     }
-    .service-list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px;}
-    .service-list li{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px; border-radius:14px;
-      background: rgba(255,255,255,.05);
+    .badge strong{color:#fff}
+    .actions{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 10px;
+    }
+
+    .hero-side{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-side .photo{
+      height: 210px;
+      background:
+        radial-gradient(650px 250px at 50% 0%, rgba(255,255,255,.12), transparent 60%),
+        linear-gradient(135deg, rgba(55,178,77,.30), rgba(28,126,214,.30)),
+        url("cover.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05);
+    }
+    .hero-side .panel{
+      padding:18px;
+    }
+    .panel h3{margin:0 0 8px; font-size:18px; letter-spacing:-.2px}
+    .panel p{margin:0 0 12px; color:var(--muted); font-size:13.5px; line-height:1.5}
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+    .mini{
+      padding:12px;
+      border-radius:14px;
+      background: rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.10);
     }
-    .tick{
-      width:22px;height:22px;border-radius:8px;
-      background: rgba(57,217,138,.16);
-      border:1px solid rgba(57,217,138,.28);
-      display:grid;place-items:center; flex:0 0 auto;
-      margin-top:1px;
-    }
-    .tick svg{width:14px;height:14px}
-    .li-text strong{display:block; font-size:14px}
-    .li-text span{display:block; margin-top:2px; color:rgba(234,242,255,.76); font-size:13px; line-height:1.35}
+    .mini .t{font-weight:900; font-size:12px; color: rgba(234,242,255,.92)}
+    .mini .v{margin-top:6px; font-weight:900; font-size:13px}
+    .mini .v a{color:#fff}
 
     /* Sections */
-    section{padding:28px 0}
+    section{padding: 22px 0}
     .section-title{
       display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      margin-bottom:14px;
+      margin-bottom: 14px;
     }
     .section-title h2{
-      margin:0; font-size: clamp(22px, 2.6vw, 30px);
-      letter-spacing:-.3px;
+      margin:0;
+      font-size: 22px;
+      letter-spacing:-.2px;
     }
     .section-title p{
-      margin:0; color:var(--muted); max-width:70ch; line-height:1.5;
-      font-weight:650;
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 52ch;
     }
 
-    .grid-3{
+    .cards{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
     }
     .card{
-      border:1px solid var(--line);
+      grid-column: span 4;
       border-radius: var(--radius);
-      background: rgba(255,255,255,.04);
-      padding:16px;
-      box-shadow: 0 12px 40px rgba(0,0,0,.22);
+      background: rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 26px rgba(0,0,0,.22);
+      padding: 16px;
+      position:relative;
+      overflow:hidden;
     }
-    .card .icon{
-      width:44px;height:44px;border-radius:16px;
-      background: linear-gradient(135deg, rgba(57,217,138,.18), rgba(46,168,255,.18));
-      border:1px solid rgba(255,255,255,.12);
-      display:grid; place-items:center;
-      margin-bottom:10px;
+    .card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(380px 140px at 10% 0%, rgba(55,178,77,.18), transparent 60%),
+                  radial-gradient(420px 200px at 90% 0%, rgba(28,126,214,.18), transparent 60%);
+      pointer-events:none;
     }
-    .card .icon svg{width:20px;height:20px}
+    .card > *{position:relative}
     .card h3{margin:0 0 6px; font-size:16px}
-    .card p{margin:0; color:rgba(234,242,255,.78); line-height:1.45; font-weight:650}
+    .card p{margin:0; color:var(--muted); font-size:13.5px; line-height:1.5}
+    .icon{
+      width:42px; height:42px; border-radius:14px;
+      display:inline-flex; align-items:center; justify-content:center;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      margin-bottom:10px;
+      font-size:20px;
+    }
 
     /* Pricing */
     .pricing{
       display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap:14px;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 12px;
     }
-    .price{
-      position:relative;
-      overflow:hidden;
+    .price-box{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.10);
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.22);
     }
-    .price.featured{
-      border-color: rgba(57,217,138,.40);
-      background: linear-gradient(180deg, rgba(57,217,138,.12), rgba(255,255,255,.04));
+    .price-box h3{margin:0 0 10px; font-size:16px}
+    .rows{display:flex; flex-direction:column; gap:10px}
+    .row{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      padding:12px;
+      border-radius:14px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
     }
-    .price .top{
-      display:flex; justify-content:space-between; align-items:center; gap:12px;
-    }
-    .price .label{
-      font-weight:900; font-size:12px; padding:8px 10px; border-radius:999px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.14);
-      color:rgba(234,242,255,.95);
-    }
-    .price.featured .label{
-      background: rgba(57,217,138,.16);
-      border-color: rgba(57,217,138,.30);
-    }
-    .price .amount{
-      margin:12px 0 6px;
-      font-size:30px;
-      letter-spacing:-.4px;
-      font-weight:950;
-    }
-    .price .amount small{
-      font-size:13px; font-weight:800; color:rgba(234,242,255,.75);
-    }
-    .price ul{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px;}
-    .price li{display:flex; gap:10px; align-items:flex-start; color:rgba(234,242,255,.82); font-weight:650; line-height:1.35}
-    .price li svg{width:16px;height:16px; margin-top:2px; opacity:.95}
+    .row .left{font-weight:900}
+    .row .right{font-weight:900; color:#fff; white-space:nowrap}
+    .note{color:var(--muted); font-size:12.5px; line-height:1.5; margin-top:10px}
 
-    /* CTA strip */
-    .cta{
-      border-radius: 24px;
-      border:1px solid rgba(255,255,255,.12);
-      background:
-        radial-gradient(900px 260px at 20% 20%, rgba(57,217,138,.22), transparent 60%),
-        radial-gradient(900px 260px at 80% 20%, rgba(46,168,255,.22), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      padding:18px;
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-      box-shadow: var(--shadow);
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(12,1fr);
+      gap: 10px;
     }
-    .cta strong{font-size:16px}
-    .cta span{display:block; margin-top:4px; color:rgba(234,242,255,.80); font-weight:650}
-    .cta .actions{display:flex; gap:10px; flex-wrap:wrap}
+    .tile{
+      grid-column: span 4;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 10px 26px rgba(0,0,0,.22);
+      min-height: 150px;
+      position:relative;
+    }
+    .tile img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.05)}
+    .tile .cap{
+      position:absolute; left:12px; bottom:12px;
+      background: rgba(7,20,36,.65);
+      border:1px solid rgba(255,255,255,.12);
+      padding:8px 10px;
+      border-radius: 999px;
+      font-weight:900;
+      font-size:12px;
+      backdrop-filter: blur(8px);
+    }
 
     /* Footer */
     footer{
-      padding:22px 0 34px;
-      border-top:1px solid var(--line);
-      margin-top:18px;
-      color:rgba(234,242,255,.76);
-      font-weight:650;
+      padding: 28px 0 40px;
+      border-top:1px solid rgba(255,255,255,.08);
+      margin-top: 10px;
     }
-    .footer-grid{
-      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
-      align-items:center;
+    .foot{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;
     }
-    .small{font-size:12.5px;color:rgba(234,242,255,.70)}
+    .small{color:var(--muted); font-size:12.5px; line-height:1.5}
+    .links{display:flex; gap:10px; flex-wrap:wrap}
+    .links a{padding:8px 10px; border-radius:12px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); font-weight:800; font-size:12px}
 
     /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr; }
-      .pricing,.grid-3{grid-template-columns:1fr; }
-      .nav{display:none;}
-      .cta{flex-direction:column; align-items:flex-start;}
+    @media (max-width: 940px){
+      .hero-grid{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr}
+      nav{display:none}
+      .card{grid-column: span 6}
+      .tile{grid-column: span 6}
+    }
+    @media (max-width: 560px){
+      .card{grid-column: span 12}
+      .tile{grid-column: span 12}
+      .brand{min-width:auto}
     }
   </style>
 </head>
 
 <body>
-  <!-- Top Bar -->
-  <header class="topbar">
+  <div class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="#top">
-        <div class="brand-badge" aria-hidden="true">
-          <!-- simple leaf + sparkle -->
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M19 4c-6 1-10 5-11 11 6-1 10-5 11-11Z" stroke="#031527" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M8 20c-1-5 3-10 11-11" stroke="#031527" stroke-width="2" stroke-linecap="round"/>
-            <path d="M4 10h2M5 8V6M6 8H8" stroke="#031527" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+      <div class="brand">
+        <img src="logo.png" alt="Grass & Glass logo">
+        <div>
+          <div class="name">Grass &amp; Glass</div>
+          <div class="tag">Coleraine • Portrush • Portstewart • North Coast Route</div>
         </div>
-        <div class="brand-name">
-          <strong>Grass &amp; Glass</strong>
-          <span>Coleraine • Portrush • Portstewart</span>
-        </div>
-      </a>
+      </div>
 
-      <nav class="nav">
+      <nav>
         <a href="#services">Services</a>
-        <a href="#pricing">Prices</a>
+        <a href="#prices">Prices</a>
         <a href="#areas">Areas</a>
+        <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="cta-row">
-        <a class="btn" href="mailto:grassandglassni@gmail.com" aria-label="Email Grass & Glass">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2"/></svg>
-          Email
-        </a>
-        <a class="btn primary" href="tel:+447934834567" aria-label="Call Grass & Glass">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M6 3h4l2 5-3 2c1 3 3 5 6 6l2-3 5 2v4c0 1-1 2-2 2C10 21 3 14 3 5c0-1 1-2 2-2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Call/Text: 07934 834567
-        </a>
+        <a class="btn primary" href="tel:+447934834567"><span class="dot"></span>Call: 07934 834567</a>
+        <a class="btn blue" href="mailto:grassandglassni@gmail.com"><span class="dot"></span>Email Us</a>
       </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <div class="inner">
+          <div class="kicker">
+            <span class="pill">FREE QUOTES • FAST REPLY</span>
+            <span>Local outdoor maintenance</span>
+          </div>
+
+          <h1>Grass Cutting &amp; Window Cleaning<br>done properly on the North Coast.</h1>
+          <p class="sub">
+            Grass &amp; Glass provides reliable <strong>grass cutting, lawn care, garden tidy-ups</strong> and
+            <strong>window cleaning</strong> for homes and small businesses — with clear pricing, tidy work, and quick communication.
+          </p>
+
+          <div class="badge-row">
+            <div class="badge">✅ <strong>Local</strong> &amp; dependable</div>
+            <div class="badge">✅ <strong>Affordable</strong> for new starters</div>
+            <div class="badge">✅ <strong>Clean finish</strong> every time</div>
+          </div>
+
+          <div class="actions">
+            <a class="btn primary" href="tel:+447934834567">Call or Text: 07934 834567</a>
+            <a class="btn" href="#prices">See Prices</a>
+            <a class="btn" href="#contact">Get a Free Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <!-- Optional: if you have a real local photo, name it cover.jpg to use here -->
+        <div class="photo" aria-hidden="true"></div>
+        <div class="panel">
+          <h3>Quick Contact</h3>
+          <p>Message us what you need and your area — we’ll reply fast with a quote.</p>
+          <div class="mini-grid">
+            <div class="mini">
+              <div class="t">Call / Text</div>
+              <div class="v"><a href="tel:+447934834567">07934 834567</a></div>
+            </div>
+            <div class="mini">
+              <div class="t">Email</div>
+              <div class="v"><a href="mailto:grassandglassni@gmail.com">grassandglassni@gmail.com</a></div>
+            </div>
+          </div>
+          <p class="note" style="margin-top:12px;">
+            Tip: add your best before/after photos below in the Gallery for instant trust.
+          </p>
+        </div>
+      </aside>
     </div>
   </header>
 
-  <!-- Hero -->
-  <main id="top" class="hero">
-    <div class="container hero-grid">
-      <div class="hero-card hero-left">
-        <div class="pill"><i></i> Free Quotes • Fast Reply • Local Service</div>
-        <h1>Grass Cutting &amp; Window Cleaning done properly.</h1>
-        <p class="sub">
-          Grass &amp; Glass provides reliable <b>lawn care</b>, <b>garden tidy-ups</b> and <b>window cleaning</b> for homes and small businesses.
-          We cover <b>Coleraine</b>, <b>Portrush</b> and <b>Portstewart</b>.
+  <main>
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>What we offer</h2>
+            <p>Clear services, tidy work, and honest pricing.</p>
+          </div>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="icon">🌿</div>
+            <h3>Grass Cutting &amp; Lawn Care</h3>
+            <p>Regular cuts or one-offs. Clean edges, tidy finish, and clippings handled as agreed.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🧹</div>
+            <h3>Garden Tidy-Ups</h3>
+            <p>Weeds, light trimming, and general clear-outs to get things looking fresh again.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🪟</div>
+            <h3>Window Cleaning</h3>
+            <p>Streak-free clean for frames &amp; glass. Great for homes and small businesses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="prices">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Simple starter pricing</h2>
+            <p>These are guide prices — final quote depends on size, access, and condition.</p>
+          </div>
+        </div>
+
+        <div class="pricing">
+          <div class="price-box">
+            <h3>Grass Cutting</h3>
+            <div class="rows">
+              <div class="row"><div class="left">Small lawn (front or back)</div><div class="right">from £15</div></div>
+              <div class="row"><div class="left">Medium lawn</div><div class="right">from £25</div></div>
+              <div class="row"><div class="left">Large lawn</div><div class="right">from £35</div></div>
+              <div class="row"><div class="left">Strim edges / tidy finish</div><div class="right">included / add-on</div></div>
+            </div>
+            <div class="note">Want regular cuts? Message us and we’ll do a weekly/fortnightly deal.</div>
+          </div>
+
+          <div class="price-box">
+            <h3>Window Cleaning</h3>
+            <div class="rows">
+              <div class="row"><div class="left">Small house (front)</div><div class="right">from £10</div></div>
+              <div class="row"><div class="left">Full house</div><div class="right">from £20</div></div>
+              <div class="row"><div class="left">Small business frontage</div><div class="right">quote</div></div>
+              <div class="row"><div class="left">Frames / sills</div><div class="right">available</div></div>
+            </div>
+            <div class="note">Best way: send a quick photo of your windows / lawn and we’ll quote fast.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="areas">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Areas we cover</h2>
+            <p>Coleraine • Portrush • Portstewart — plus the wider North Coast Route.</p>
+          </div>
+        </div>
+
+        <div class="cards">
+          <div class="card" style="grid-column: span 6;">
+            <div class="icon">📍</div>
+            <h3>Core Areas</h3>
+            <p><strong>Coleraine</strong>, <strong>Portrush</strong>, <strong>Portstewart</strong>.</p>
+          </div>
+          <div class="card" style="grid-column: span 6;">
+            <div class="icon">🌊</div>
+            <h3>North Coast Route</h3>
+            <p>Happy to travel around the <strong>Causeway Coast &amp; Glens</strong> area — message your postcode and we’ll confirm.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Gallery</h2>
+            <p>Add your real photos here (before/after) — this is what sells.</p>
+          </div>
+        </div>
+
+        <!-- Replace these image files with your own photos (same filenames) -->
+        <div class="gallery">
+          <div class="tile"><img src="g1.jpg" alt="Lawn care example"><div class="cap">Grass Cutting</div></div>
+          <div class="tile"><img src="g2.jpg" alt="Garden tidy up example"><div class="cap">Garden Tidy-Up</div></div>
+          <div class="tile"><img src="g3.jpg" alt="Window cleaning example"><div class="cap">Window Cleaning</div></div>
+        </div>
+
+        <p class="note">
+          If you don’t have photos yet, remove the Gallery section for now or add placeholders later.
         </p>
-
-        <div class="highlights">
-          <div class="tag">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-11a8 8 0 1 0-16 0c0 7 8 11 8 11Z" stroke="currentColor" stroke-width="2"/><path d="M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="2"/></svg>
-            Local to the North Coast
-          </div>
-          <div class="tag">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Tidy finish every time
-          </div>
-          <div class="tag">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            Weekly / Fortnightly available
-          </div>
-        </div>
-
-        <div class="hero-actions">
-          <a class="btn primary" href="#contact">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6A8.4 8.4 0 0 1 12.5 3h.5a8.5 8.5 0 0 1 8 8.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Get a free quote
-          </a>
-          <a class="btn" href="#pricing">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            View prices
-          </a>
-        </div>
-
-        <div class="note">Tip: For the fastest quote, text your address + a quick photo of the garden/windows.</div>
       </div>
+    </section>
 
-      <div class="hero-card hero-right">
-        <div class="mini-card">
-          <div class="mini-title">
-            <strong>What we do</strong>
-            <span class="badge">Homes &amp; Small Businesses</span>
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Get a free quote</h2>
+            <p>Send: your area + what you need + (optional) a quick photo.</p>
+          </div>
+        </div>
+
+        <div class="cards">
+          <div class="card" style="grid-column: span 6;">
+            <div class="icon">📞</div>
+            <h3>Call / Text</h3>
+            <p><strong>07934 834567</strong><br>Fastest way for a quick booking or price.</p>
+            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn primary" href="tel:+447934834567">Call Now</a>
+              <a class="btn" href="sms:+447934834567">Text Now</a>
+            </div>
           </div>
 
-          <ul id="services" class="service-list">
-            <li>
-              <div class="tick" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="li-text">
-                <strong>Grass Cutting &amp; Lawn Care</strong>
-                <span>One-off cuts or regular maintenance.</span>
-              </div>
-            </li>
-            <li>
-              <div class="tick" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="li-text">
-                <strong>Garden Tidy-Ups</strong>
-                <span>Edges, light clearing, clean finish.</span>
-              </div>
-            </li>
-            <li>
-              <div class="tick" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="li-text">
-                <strong>Window Cleaning</strong>
-                <span>Frames &amp; sills option available.</span>
-              </div>
-            </li>
-          </ul>
-
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn primary" href="tel:+447934834567">Call/Text Now</a>
-            <a class="btn" href="mailto:grassandglassni@gmail.com">Email Us</a>
+          <div class="card" style="grid-column: span 6;">
+            <div class="icon">✉️</div>
+            <h3>Email</h3>
+            <p><strong>grassandglassni@gmail.com</strong><br>Ideal for bigger jobs or multiple services.</p>
+            <div style="margin-top:12px;">
+              <a class="btn blue" href="mailto:grassandglassni@gmail.com?subject=Quote%20Request%20-%20Grass%20%26%20Glass&body=Hi%20Grass%20%26%20Glass%2C%0A%0AArea%3A%20%0AService%20needed%3A%20%0AWhen%20would%20you%20like%20it%20done%3A%20%0AAny%20photos%3A%20(add%20as%20attachment)%0A%0AThanks!">Email for a Quote</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 
-  <!-- Why us -->
-  <section>
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2>Simple, reliable, no messing.</h2>
-          <p>Perfect for new customers: quick booking, clear pricing, and a tidy finish.</p>
-        </div>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M20 7H4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2"/><path d="M6 7l1 14h10l1-14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Clean &amp; professional</h3>
-          <p>We treat your property with respect — neat edges, tidy paths, clean windows.</p>
-        </div>
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/></svg>
-          </div>
-          <h3>Fast replies</h3>
-          <p>Text us your address + photos and we’ll get back quickly with a quote.</p>
-        </div>
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-11a8 8 0 1 0-16 0c0 7 8 11 8 11Z" stroke="currentColor" stroke-width="2"/><path d="M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="2"/></svg>
-          </div>
-          <h3>Local coverage</h3>
-          <p>Serving Coleraine, Portrush and Portstewart — North Coast local service.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section id="pricing">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2>Starter-friendly prices</h2>
-          <p>These are guide prices — message for an exact quote (size/access can change cost).</p>
-        </div>
-      </div>
-
-      <div class="pricing">
-        <div class="card price">
-          <div class="top">
-            <strong>Small Garden Cut</strong>
-            <span class="label">Most popular</span>
-          </div>
-          <div class="amount">From £20 <small>/ visit</small></div>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Grass cut</li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Basic tidy finish</li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Weekly / fortnightly</li>
-          </ul>
-        </div>
-
-        <div class="card price featured">
-          <div class="top">
-            <strong>Window Clean</strong>
-            <span class="label">Quick turnaround</span>
-          </div>
-          <div class="amount">From £10 <small>/ job</small></div>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Exterior windows</li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Frames &amp; sills optional</li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Homes &amp; small shops</li>
-          </ul>
-        </div>
-
-        <div class="card price">
-          <div class="top">
-            <strong>Garden Tidy-Up</strong>
-            <span class="label">One-off</span>
-          </div>
-          <div class="amount">From £30 <small>/ job</small></div>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Light clearing</li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Edges &amp; tidy finish</li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Perfect for overgrown areas</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Areas -->
-  <section id="areas">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2>Areas covered</h2>
-          <p>Based on the North Coast — we mainly cover these areas and nearby streets/estates.</p>
-        </div>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Coleraine</h3>
-          <p>Regular cuts, tidies and window cleaning across town &amp; nearby estates.</p>
-        </div>
-        <div class="card">
-          <h3>Portrush</h3>
-          <p>Local service for homes, rentals and small businesses.</p>
-        </div>
-        <div class="card">
-          <h3>Portstewart</h3>
-          <p>Grass &amp; glass maintenance with quick messages and fast replies.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact CTA -->
-  <section id="contact">
-    <div class="container">
-      <div class="cta">
-        <div>
-          <strong>Want a quick quote?</strong>
-          <span>Text your address + a photo. We’ll reply fast with a price and next available slot.</span>
-        </div>
-        <div class="actions">
-          <a class="btn primary" href="tel:+447934834567">Call/Text: 07934 834567</a>
-          <a class="btn" href="mailto:grassandglassni@gmail.com">grassandglassni@gmail.com</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <footer>
-    <div class="container footer-grid">
-      <div class="small">© <span id="year"></span> Grass &amp; Glass — Grass Cutting &amp; Window Cleaning</div>
-      <div class="small">Coleraine • Portrush • Portstewart</div>
+    <div class="container foot">
+      <div>
+        <div style="font-weight:900; font-size:14px;">Grass &amp; Glass</div>
+        <div class="small">Grass Cutting • Window Cleaning • Garden Tidy-Ups</div>
+        <div class="small">Coleraine • Portrush • Portstewart • North Coast Route</div>
+      </div>
+
+      <div class="links">
+        <!-- Add your Facebook page link here once it’s live -->
+        <a href="#" onclick="alert('Add your Facebook Page link here once it is created.'); return false;">Facebook Page</a>
+        <a href="tel:+447934834567">Call</a>
+        <a href="mailto:grassandglassni@gmail.com">Email</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Small quality-of-life: smooth scroll for nav
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(!id || id === '#') return;
+        const el = document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
   </script>
 </body>
 </html>
